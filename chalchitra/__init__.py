@@ -1,8 +1,10 @@
 import os
 import time
+from collections import namedtuple
 import pyautogui
 
 DIRECTORY = ""
+Point = namedtuple("Point", ["x", "y"])
 
 
 def a_setup(dirpath):
@@ -11,15 +13,15 @@ def a_setup(dirpath):
     DIRECTORY = dirpath
 
 
-def a_click(image: str, confidence=0.9, clicks=1, button="left", grayscale=False):
+def _find_location(image="", confidence=0.9, grayscale=False):
     """Finds a given image. One can reduce the confidence if having trouble
     to match the image.
 
     :param image: Name of the image without the .png extension
     :param confidence: Default value is 0.9
-    :param clicks: number of clicks, default 1
+    :param grayscale: To search in grayscale for faster result
 
-    :returns: True on success, False on error
+    :returns: False or error, or namedtuple Point
     """
     global DIRECTORY
     filepath = os.path.join(DIRECTORY, f"{image}.png")
@@ -30,9 +32,25 @@ def a_click(image: str, confidence=0.9, clicks=1, button="left", grayscale=False
         x, y, = pyautogui.locateCenterOnScreen(
             filepath, confidence=confidence, grayscale=grayscale
         )
-        pyautogui.click(x, y, clicks, button=button)
+        return Point(x, y)
     except (pyautogui.PyAutoGUIException, TypeError):
         return False
+
+
+def a_click(image="", confidence=0.9, clicks=1, button="left", grayscale=False):
+    """Finds a given image. One can reduce the confidence if having trouble
+    to match the image.
+
+    :param image: Name of the image without the .png extension
+    :param confidence: Default value is 0.9
+    :param clicks: number of clicks, default 1
+
+    :returns: True on success, False on error
+    """
+    location = _find_location(image, confidence, grayscale)
+    if not location:
+        return False
+    pyautogui.click(location.x, location.y, clicks, button=button)
 
     return True
 
@@ -45,4 +63,4 @@ def a_doubleclick(image: str, confidence=0.9):
 
     :returns: True on success, False on error
     """
-    a_click(image, confidence=confidence, clicks=2)
+    return a_click(image, confidence=confidence, clicks=2)
