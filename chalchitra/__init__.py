@@ -4,6 +4,7 @@ from collections import namedtuple
 import pyautogui
 
 DIRECTORY = ""
+KEYS = pyautogui.KEYBOARD_KEYS
 Point = namedtuple("Point", ["x", "y"])
 
 
