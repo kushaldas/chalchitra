@@ -67,3 +67,44 @@ def a_doubleclick(image: str, confidence=0.9, grayscale=False):
     :returns: True on success, False on error
     """
     return a_click(image, confidence=confidence, clicks=2)
+
+
+def a_typetext(text="", interval="0.01"):
+    """Types the text with the given interval speed.
+
+    :param text: String text to be typed
+    :param interval: speed of typing, default is 0.01 (fast)
+    """
+    pyautogui.write(text, interval=interval)
+
+
+def a_keypress(key=""):
+    """Presses the key once (key down and then key up)
+
+    :param key: The keyboard key to press, (see KEYS values for the full list)
+    """
+    pyautogui.press(key)
+
+
+def a_keydown(key=""):
+    """Kept pressing the given key. Remember to all a_keyup when you are down.
+
+    :param key: The keyboard key to press, (see KEYS values for the full list)
+    """
+    pyautogui.keyDown(key)
+
+
+def a_keyup(key=""):
+    """Removes the pressure from the given key. To be used along with a a_keydown call.
+
+    :param key: The keyboard key, (see KEYS values for the full list)
+    """
+    pyautogui.keyDown(key)
+
+
+def a_hotkey(keys):
+    """Special function to keep pressing the given keys in order, and then keyup in the reverse order.
+
+    :param keys: A list of the keys.
+    """
+    pyautogui.hotkey(*keys)
