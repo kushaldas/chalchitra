@@ -13,7 +13,7 @@ Chalchitra is a small Python module to help to write GUI based tests.
    :maxdepth: 2
 
    install
-
+   usage
 
 Indices and tables
 ==================
