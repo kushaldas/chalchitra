@@ -38,6 +38,22 @@ def _find_location(image="", confidence=0.9, grayscale=False):
         return False
 
 
+def a_verify(image="", confidence=0.9, grayscale=False):
+    """Finds a given screenshot on the screen. One can reduce the confidence if having trouble
+    to match the image. Having grayscale=True will the search a bit faster.
+
+    :param image: Name of the image without the .png extension
+    :param confidence: Default value is 0.9
+    :param grayscale: To search in grayscale for faster result
+
+    :returns: True if it can find the screenshot, or else False
+    """
+    location = _find_location(image, confidence, grayscale)
+    if not location:
+        return False
+    return True
+
+
 def a_click(image="", confidence=0.9, clicks=1, button="left", grayscale=False):
     """Finds a given image. One can reduce the confidence if having trouble
     to match the image.
