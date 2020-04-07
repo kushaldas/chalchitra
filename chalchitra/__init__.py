@@ -44,6 +44,8 @@ def a_click(image="", confidence=0.9, clicks=1, button="left", grayscale=False):
     :param image: Name of the image without the .png extension
     :param confidence: Default value is 0.9
     :param clicks: number of clicks, default 1
+    :param button: "left", "middle" or "right", left button is the default one
+    :param grayscale: Boolean, by default False. To search in grayscale mode for the image.
 
     :returns: True on success, False on error
     """
@@ -55,11 +57,12 @@ def a_click(image="", confidence=0.9, clicks=1, button="left", grayscale=False):
     return True
 
 
-def a_doubleclick(image: str, confidence=0.9):
+def a_doubleclick(image: str, confidence=0.9, grayscale=False):
     """Double clicks with the left mouse button.
 
     :param image: Name of the image without .png extension
     :param confidence: Default value is 0.9
+    :param grayscale: Boolean, by default False. To search in grayscale mode for the image.
 
     :returns: True on success, False on error
     """
