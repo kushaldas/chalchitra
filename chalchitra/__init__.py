@@ -39,7 +39,7 @@ def _find_location(image="", confidence=0.9, grayscale=False):
 
 
 def a_verify(image="", confidence=0.9, grayscale=False):
-    """Finds a given screenshot on the screen. One can reduce the confidence if having trouble
+    """Verifies that a given image (screenshot) in on the screen. One can reduce the confidence if having trouble
     to match the image. Having grayscale=True will the search a bit faster.
 
     :param image: Name of the image without the .png extension
