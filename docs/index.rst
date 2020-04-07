@@ -11,7 +11,6 @@ Chalchitra is a small Python module to help to write GUI based tests.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    install
 
