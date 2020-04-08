@@ -129,7 +129,7 @@ def a_keyup(key=""):
 
     :param key: The keyboard key, (see KEYS values for the full list)
     """
-    pyautogui.keyDown(key)
+    pyautogui.keyUp(key)
 
 
 def a_hotkey(keys):
