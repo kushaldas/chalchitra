@@ -156,3 +156,16 @@ which Python environment to use.
 
 
 You will notice that in the final `a_verify` call we are also passing the confidence value.
+
+Below are the example screenshots used in the above code to match:
+
+.. image:: img/vscodepy/newfile.png
+
+.. image:: img/vscodepy/save_window1.png
+
+.. image:: img/vscodepy/correct_filename.png
+
+.. image:: img/vscodepy/python_env.png
+
+.. image:: img/vscodepy/output.png
+
