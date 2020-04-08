@@ -8,13 +8,13 @@ Dependencies
 On Debian
 
 ```
-sudo apt-get install libopencv-dev
+sudo apt-get install libopencv-dev scrot
 ```
 
 On Fedora
 
 ```
-sudo dnf install opencv -y
+sudo dnf install opencv scrot -y
 ```
 
 
