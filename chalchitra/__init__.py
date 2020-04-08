@@ -1,5 +1,6 @@
 import os
 import time
+from datetime import datetime
 from collections import namedtuple
 import pyautogui
 
@@ -84,6 +85,18 @@ def a_doubleclick(image: str, confidence=0.9, grayscale=False):
     :returns: True on success, False on error
     """
     return a_click(image, confidence=confidence, clicks=2)
+
+
+def a_screenshot(filename=""):
+    """Saves a screenshot and then returns the filename and the image data.
+
+    :returns: Tuple containing the saved file path and the image data.
+    """
+    if not filename:
+        now = datetime.now()
+        filename = now.strftime("%Y-%m-%d-%H-%M-%S.png")
+    image = pyautogui.screenshot(filename)
+    return filename, image
 
 
 def a_typetext(text="", interval="0.01"):
