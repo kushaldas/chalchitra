@@ -169,3 +169,95 @@ Below are the example screenshots used in the above code to match:
 
 .. image:: img/vscodepy/output.png
 
+
+Receive file via OnionShare
+---------------------------
+
+In this example, we wil use the `OnionShare <https://onionshare.org>`_ tool to
+receive a file, we will use `Tor Browser <https://www.torproject.org>`_ to do
+the actual upload.
+
+.. image:: img/onionshare_receive_files.gif
+
+The code is given below
+
+::
+
+    import time
+    from chalchitra import *
+
+
+    def main():
+        a_setup("parts/onionshare")
+
+        # Click on the new file
+        assert a_click("receive_files")
+        time.sleep(0.5)
+        # Start receiving
+        assert a_click("start_receiving")
+
+        # wait for 10 seconds
+        time.sleep(10)
+        # copy the address
+        assert a_click("copy_address")
+
+        # Next 4 lines are to move to Tor Browser
+        a_keydown("alt")
+        a_keypress("tab")
+        a_keypress("tab")
+        a_keyup("alt")
+
+        # Sleep for the screencast
+        time.sleep(0.5)
+        assert a_click("tor_browser_urlbox", confidence=0.8)
+        a_hotkey(["ctrl", "v"])
+        time.sleep(1)
+        a_keypress("enter")
+        # Now we have to wait as it will go over Tor
+        time.sleep(10)
+        assert a_verify("youarelogin")
+
+        # Login to the site
+        assert a_click("okbutton")
+        # Wait again to load the page
+        time.sleep(10)
+        assert a_verify("looks_good_page")
+        # Click on the Browse button to select
+        assert a_click("browse_button")
+        time.sleep(1)
+        a_keypress("enter")
+        time.sleep(1)
+        assert a_click("send_files")
+        # Now can you add code to verify if the upload is successful via file browser?
+
+
+    if __name__ == "__main__":
+        # sleep for 1 second for the screencast recording
+        time.sleep(1)
+        # Move to the VS Code window
+        a_hotkey(["alt", "tab"])
+        time.sleep(1)
+        main()
+
+
+The screenshots are below:
+
+.. image:: img/onionshare/looks_good_page.png
+
+.. image:: img/onionshare/start_receiving.png
+
+.. image:: img/onionshare/open_button.png
+
+.. image:: img/onionshare/okbutton.png
+
+.. image:: img/onionshare/send_files.png
+
+.. image:: img/onionshare/receive_files.png
+
+.. image:: img/onionshare/youarelogin.png
+
+.. image:: img/onionshare/browse_button.png
+
+.. image:: img/onionshare/copy_address.png
+
+.. image:: img/onionshare/tor_browser_urlbox.png
