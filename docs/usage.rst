@@ -234,7 +234,7 @@ The code is given below
     if __name__ == "__main__":
         # sleep for 1 second for the screencast recording
         time.sleep(1)
-        # Move to the VS Code window
+        # Move to the OnionShare window
         a_hotkey(["alt", "tab"])
         time.sleep(1)
         main()
