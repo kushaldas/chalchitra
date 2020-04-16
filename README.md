@@ -20,7 +20,15 @@ On Fedora
 sudo dnf install opencv -y
 ```
 
-For now you will have to install from source as this is in development.
+Create the virtualenv and install from source.
+
+```
+python3 -m venv venv
+source venv/bin/activate
+python3 setup.py sdist
+python3 -m pip install dist/chalchitra-*.tar.gz 
+```
+
 
 ## Usage guide
 
