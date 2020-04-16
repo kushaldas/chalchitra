@@ -21,3 +21,7 @@ sudo dnf install opencv -y
 ```
 
 For now you will have to install from source as this is in development.
+
+## Usage guide
+
+Please have a look at the [documentation](https://chalchitra.readthedocs.io/en/latest/usage.html).
