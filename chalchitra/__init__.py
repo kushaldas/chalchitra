@@ -57,9 +57,9 @@ def a_verify(image="", confidence=0.9, grayscale=False):
 
 def a_click(image="", confidence=0.9, clicks=1, button="left", grayscale=False):
     """Finds a given image. One can reduce the confidence if having trouble
-    to match the image.
+    to match the image. If no image is provided, then it clicks on the current place of the mouse pointer.
 
-    :param image: Name of the image without the .png extension
+    :param image: Name of the image without the .png extension, if none, it will click on the current position and always returns `True` when no image name is provided.
     :param confidence: Default value is 0.9
     :param clicks: number of clicks, default 1
     :param button: "left", "middle" or "right", left button is the default one
@@ -67,6 +67,9 @@ def a_click(image="", confidence=0.9, clicks=1, button="left", grayscale=False):
 
     :returns: True on success, False on error
     """
+    if not image:
+        pyautogui.click(clicks=clicks, button=button)
+        return True
     location = _find_location(image, confidence, grayscale)
     if not location:
         return False
@@ -84,7 +87,7 @@ def a_doubleclick(image: str, confidence=0.9, grayscale=False):
 
     :returns: True on success, False on error
     """
-    return a_click(image, confidence=confidence, clicks=2)
+    return a_click(image, confidence=confidence, clicks=2, grayscale=grayscale)
 
 
 def a_screenshot(filename=""):
