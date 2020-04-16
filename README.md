@@ -26,7 +26,7 @@ Create the virtualenv and install from source.
 python3 -m venv venv
 source venv/bin/activate
 python3 setup.py sdist
-python3 -m pip install dist/chalchitra-*.tar.gz 
+python3 -m pip install dist/chalchitra-0.2.0.tar.gz
 ```
 
 
