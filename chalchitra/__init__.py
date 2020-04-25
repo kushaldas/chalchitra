@@ -55,6 +55,29 @@ def a_verify(image="", confidence=0.9, grayscale=False):
     return True
 
 
+def a_wait(image="", confidence=0.9, grayscale=False, timeout=10):
+    """Wait till the given timeout seconds to verify that a given image (screenshot) in on the screen. One can reduce the confidence if having trouble
+    to match the image. Having grayscale=True will the search a bit faster.
+
+    :param image: Name of the image without the .png extension
+    :param confidence: Default value is 0.9
+    :param grayscale: To search in grayscale for faster result
+    :param timeout: Timeout in seconds, 10 is the default value
+
+    :returns: True if it can find the screenshot within the given timeout seconds, or else False
+    """
+    waittime = 0
+    while waittime < timeout:
+        ret = a_verify(image, confidence, grayscale)
+        if not ret:
+            waittime += 1
+            time.sleep(1)
+        else:
+            return True
+    # Could not find the screenshot in the given time
+    return False
+
+
 def a_click(image="", confidence=0.9, clicks=1, button="left", grayscale=False):
     """Finds a given image. One can reduce the confidence if having trouble
     to match the image. If no image is provided, then it clicks on the current place of the mouse pointer.
@@ -81,7 +104,7 @@ def a_click(image="", confidence=0.9, clicks=1, button="left", grayscale=False):
 def a_doubleclick(image: str, confidence=0.9, grayscale=False):
     """Double clicks with the left mouse button.
 
-    :param image: Name of the image without .png extension
+    :param image: Name of the image without .png extension, this can be None if you want to click on the current mouse position.
     :param confidence: Default value is 0.9
     :param grayscale: Boolean, by default False. To search in grayscale mode for the image.
 
