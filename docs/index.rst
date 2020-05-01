@@ -6,7 +6,7 @@
 Welcome to Chalchitra's documentation!
 ======================================
 
-Chalchitra is a small Python module to help to write GUI based tests.
+sChalchitra is a small Python module to help to write GUI based tests.
 
 
 .. toctree::
@@ -14,6 +14,7 @@ Chalchitra is a small Python module to help to write GUI based tests.
 
    install
    usage
+   api
 
 Indices and tables
 ==================

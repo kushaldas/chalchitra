@@ -4,8 +4,26 @@ from datetime import datetime
 from collections import namedtuple
 import pyautogui
 
+__all__ = [
+    "KEYS",
+    "Point",
+    "a_click",
+    "a_doubleclick",
+    "a_hotkey",
+    "a_keydown",
+    "a_keyup",
+    "a_keypress",
+    "a_screenshot",
+    "a_setup",
+    "a_typetext",
+    "a_verify",
+    "a_wait",
+]
 DIRECTORY = ""
+
 KEYS = pyautogui.KEYBOARD_KEYS
+"""KEYS contains all keyboard keys"""
+
 Point = namedtuple("Point", ["x", "y"])
 
 
