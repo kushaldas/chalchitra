@@ -19,11 +19,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 # -- Project information -----------------------------------------------------
 
 project = "Chalchitra"
-copyright = "2020, Kushal Das"
+copyright = "2020-2023, Kushal Das"
 author = "Kushal Das"
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.0"
+release = "0.3.0"
 
 master_doc = "index"
 
