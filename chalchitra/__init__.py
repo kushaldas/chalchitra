@@ -4,6 +4,8 @@ from datetime import datetime
 from collections import namedtuple
 import pyautogui
 
+__version__ = "0.3.0"
+
 __all__ = [
     "KEYS",
     "Point",

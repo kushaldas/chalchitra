@@ -1,0 +1,35 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+
+[project]
+name='chalchitra'
+description='Python module to do GUI testing based on screenshots.'
+authors = [
+  {name = "Kushal Das", email = "mail@kushaldas.in"},
+]
+license= { file="LICENSE" }
+readme= "README.md"
+classifiers=[
+        'Topic :: Software Development :: Libraries',
+        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+        'Topic :: System :: Distributed Computing',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        ]
+requires-python= ">=3.9"
+dynamic= ["version",]
+
+dependencies = [
+  "pyautogui",
+  "opencv-python",
+]
+[project.urls]
+Source='https://github.com/kushaldas/chalchitra'
+Documentation = "https://chalchitra.readthedocs.io/en/latest/"
+
+
+[tool.flit.sdist]
+include = ["LICENSE",]
