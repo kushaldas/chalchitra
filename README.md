@@ -25,8 +25,10 @@ Create the virtualenv and install from source.
 ```
 python3 -m venv venv
 source venv/bin/activate
-python3 setup.py sdist
-python3 -m pip install dist/chalchitra-0.2.0.tar.gz
+python3 -m pip install -r requirements.txt
+python3 -m pip install flit
+flit build
+python3 -m pip install dist/chalchitra-0.3.0-py3-none-any.whl
 ```
 
 
